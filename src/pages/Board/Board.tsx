@@ -5,17 +5,6 @@ interface IBoardState {
   lists: { id: number; title: string; cards: { id: number; title: string }[] }[];
 }
 
-export interface ICard {
-  id: number;
-  title: string;
-}
-
-export interface IList {
-  id: number;
-  title: string;
-  cards: ICard[];
-}
-
 export default class Board extends React.Component<IBoardState, IBoardState> {
   constructor(props: IBoardState) {
     super(props);
