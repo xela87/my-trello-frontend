@@ -1,4 +1,6 @@
 import React from 'react';
+import List from './components/List/List';
+import './board.scss';
 
 interface IBoardState {
   title: string;
@@ -40,23 +42,13 @@ export default class Board extends React.Component<IBoardState, IBoardState> {
   render() {
     const { title, lists } = this.state;
     return (
-      <div>
-        <h1>{title}</h1>
-        <div>
+      <div className="board">
+        <h1 className="title">{title}</h1>
+        <div className="listsContainer">
           {lists.map((list) => (
-            <div>
-              <div>{list.id}</div>
-              <div>{list.title}</div>
-              <div>
-                {list.cards.map((card) => (
-                  <div>
-                    <div>{card.id}</div>
-                    <div>{card.title}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <List title={list.title} cards={list.cards} />
           ))}
+          <button className="addListBtn">Add new list</button>
         </div>
       </div>
     );

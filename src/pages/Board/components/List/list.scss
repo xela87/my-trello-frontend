@@ -1,0 +1,13 @@
+.mainList {
+  width: 250px;
+  height: 300px;
+  background: rgba(255, 255, 255, .5);
+  padding: 10px;
+  margin: 25px;
+  border-radius: 7px;
+  box-shadow: 3px 3px 15px grey;
+  .listTitle {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
