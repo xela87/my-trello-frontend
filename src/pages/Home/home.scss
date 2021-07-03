@@ -22,6 +22,9 @@
     margin: 25px;
     border-radius: 7px;
     box-shadow: 3px 3px 15px grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .addNewBoardBtn {
     width: 250px;
