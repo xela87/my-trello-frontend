@@ -1,10 +1,11 @@
 import React from 'react';
 import List from './components/List/List';
 import './board.scss';
+import { IList } from './components/interfaces/IList';
 
 interface IBoardState {
   title: string;
-  lists: { id: number; title: string; cards: { id: number; title: string }[] }[];
+  lists: IList[];
 }
 
 export default class Board extends React.Component<IBoardState, IBoardState> {
@@ -43,7 +44,7 @@ export default class Board extends React.Component<IBoardState, IBoardState> {
     const { title, lists } = this.state;
     return (
       <div className="board">
-        <h1 className="title">{title}</h1>
+        <h2 className="title">{title}</h2>
         <div className="listsContainer">
           {lists.map((list) => (
             <List title={list.title} cards={list.cards} />
