@@ -1,6 +1,6 @@
 import React from 'react';
 import { ICard } from '../interfaces/ICard';
-import './list.scss';
+import './List.scss';
 import Card from '../Card/Card';
 
 interface IListProps {

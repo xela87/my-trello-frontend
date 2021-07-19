@@ -1,6 +1,6 @@
 import React from 'react';
 import { ICard } from '../interfaces/ICard';
-import './card.scss';
+import './Card.scss';
 
 export default function Card({ title }: ICard): JSX.Element {
   return (

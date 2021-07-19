@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './home.scss';
 import { IBoard } from '../Board/components/interfaces/IBoard';
 
@@ -26,7 +27,12 @@ export default class Home extends React.Component<IBoardsState, IBoardsState> {
         <h1 className="title">Мои доски</h1>
         <div className="boardsContainer">
           {boards.map((board) => (
-            <div className="boardLink">{board.title} </div>
+            <Link key={board.id} to={`/board/${board.id}`} className="boardLink">
+              <p>
+                {board.title}
+                {board.id}
+              </p>
+            </Link>
           ))}
           <button className="addNewBoardBtn">Add new board</button>
         </div>

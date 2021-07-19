@@ -1,6 +1,7 @@
 import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import List from './components/List/List';
-import './board.scss';
+import './Board.scss';
 import { IList } from './components/interfaces/IList';
 
 interface IBoardState {
@@ -8,8 +9,12 @@ interface IBoardState {
   lists: IList[];
 }
 
-export default class Board extends React.Component<IBoardState, IBoardState> {
-  constructor(props: IBoardState) {
+interface MatchParams {
+  id: string;
+}
+
+class Board extends React.Component<RouteComponentProps<MatchParams>, IBoardState> {
+  constructor(props: RouteComponentProps<MatchParams>) {
     super(props);
     this.state = {
       title: 'Моя тестовая доска',
@@ -41,13 +46,18 @@ export default class Board extends React.Component<IBoardState, IBoardState> {
   }
 
   render() {
+    // eslint-disable-next-line react/destructuring-assignment
+    const { id } = this.props.match.params;
     const { title, lists } = this.state;
     return (
       <div className="board">
-        <h2 className="title">{title}</h2>
+        <h2 className="title">
+          {title}
+          {id}
+        </h2>
         <div className="listsContainer">
           {lists.map((list) => (
-            <List title={list.title} cards={list.cards} />
+            <List key={list.id} title={list.title} cards={list.cards} />
           ))}
           <button className="addListBtn">Add new list</button>
         </div>
@@ -55,3 +65,5 @@ export default class Board extends React.Component<IBoardState, IBoardState> {
     );
   }
 }
+
+export default withRouter(Board);
